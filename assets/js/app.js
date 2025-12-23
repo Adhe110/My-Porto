@@ -7,7 +7,7 @@ const DATA = {
     subheadline: "Frontend Developer - UIUX Designer",
     description:
       "Frontend Developer & UI/UX Designer crafting sleek, functional experiences. Passionate about clean code, bold design, and exploring the fun side of tech.",
-    image: "assets/img/my.jpg",
+    image: "assets/img/Profile/My.jpg",
     resume: "assets/resume.pdf" // kalau belum ada, ganti jadi "#"
   },
 
@@ -17,28 +17,28 @@ const DATA = {
       organization: "Universitas Negeri Makassar",
       role: "Computer Engineering",
       date: "Aug 2023 - Present",
-      logo: "assets/img/e.webp"
+      logo: "assets/img/Education&Experience/unm.webp"
     },
     {
       category: "Education",
       organization: "SMK 2 MAKASSAR",
       role: "Audio Video",
       date: "July 2020 - May 2023",
-      logo: "assets/img/logos/smk2.png"
+      logo: "assets/img/Education&Experience/smk2.png"
     },
     {
       category: "Experience",
       organization: "GDoC Universitas Negeri Makassar",
       role: "Research And Development",
       date: "Oct 2023 - Present",
-      logo: "assets/img/gdgoc.jpg"
+      logo: "assets/img/Education&Experience/gdgoc.jpg"
     },
     {
       category: "Experience",
       organization: "Micro Computer",
       role: "IT Technician Intern",
       date: "Aug 2022 - Present",
-      logo: "assets/img/logos/micro.png"
+      logo: "assets/img/Education&Experience/MicroComputer.png"
     }
   ],
 
@@ -57,7 +57,7 @@ const DATA = {
       headline: "Property Marketplace",
       description:
         "Platform jual beli properti dengan fitur real-time chat dan peta interaktif. Membantu user menemukan hunian impian.",
-      image_url: "assets/img/projects/hostify.png",
+      image_url: "assets/img/Projects/Hostify.png",
       tags: "HTML, Laravel",
       repo_link: "https://github.com/dhea"
     },
