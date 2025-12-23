@@ -40,12 +40,12 @@ const DATA = {
   ],
 
   skills: [
-    { name: "IoT", icon: "assets/img/skills/iot.png" },
-    { name: "HTML5", icon: "assets/img/skills/html.png" },
-    { name: "CSS3", icon: "assets/img/skills/css.png" },
-    { name: "PHP", icon: "assets/img/skills/php.png" },
-    { name: "Laravel", icon: "assets/img/skills/laravel.png" },
-    { name: "MySQL", icon: "assets/img/skills/mysql.png" }
+    { name: "IoT", icon: "assets/img/Skills/iot.png" },
+    { name: "HTML5", icon: "assets/img/Skills/html.png" },
+    { name: "CSS3", icon: "assets/img/Skills/css.png" },
+    { name: "PHP", icon: "assets/img/Skills/php.png" },
+    { name: "Laravel", icon: "assets/img/Skills/laravel.png" },
+    { name: "MySQL", icon: "assets/img/Skills/mysql.png" }
   ],
 
 projects: [
