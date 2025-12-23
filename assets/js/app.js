@@ -1,14 +1,11 @@
-// ================================
-// STATIC DATA (tanpa Spreadsheet)
-// ================================
 const DATA = {
   profile: {
     headline: "The One Who Codes, Creates, and Conquers.",
-    subheadline: "Frontend Developer - UIUX Designer",
+    subheadline: " IoT & Programming Enthusiast",
     description:
-      "Frontend Developer & UI/UX Designer crafting sleek, functional experiences. Passionate about clean code, bold design, and exploring the fun side of tech.",
+      "Hello! I’m passionate about IoT and programming. Here you’ll find my projects, ideas, and the journey of combining hardware and software into working innovations.",
     image: "assets/img/Profile/My.jpg",
-    resume: "assets/resume.pdf" // kalau belum ada, ganti jadi "#"
+    resume: "#"
   },
 
   timeline: [
@@ -76,9 +73,6 @@ projects: [
   ]
 };
 
-// ================================
-// RENDER FUNCTIONS
-// ================================
 function renderProfile(data) {
   if (!data) return;
   document.getElementById("hero-headline").innerText = data.headline;
@@ -91,10 +85,6 @@ function renderProfile(data) {
   const heroBtn = document.getElementById("hero-btn");
   heroBtn.href = data.resume || "#";
 }
-
-// ================================
-// UPDATE DI APP.JS
-// ================================
 
 function renderTimeline(data) {
   const eduContainer = document.getElementById("education-list");
@@ -199,9 +189,6 @@ function renderProjects(data) {
   });
 }
 
-// ================================
-// INIT
-// ================================
 document.addEventListener("DOMContentLoaded", () => {
   renderProfile(DATA.profile);
   renderTimeline(DATA.timeline);
@@ -209,22 +196,18 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProjects(DATA.projects);
 });
 
-
-// ================================
-// UPDATE FUNGSI RENDER PROJECTS
-// ================================
 function renderProjects(data) {
-  // 1. Cek apakah kita ada di Home (Preview)
+
   const homeContainer = document.getElementById("project-grid");
   
-  // 2. Cek apakah kita ada di All Projects Page (Full)
+
   const allContainer = document.getElementById("all-project-grid");
 
-  // Fungsi helper untuk merender ke dalam container tertentu
+
   const mountToContainer = (container, limit = 0) => {
     container.innerHTML = "";
     
-    // Jika limit > 0, potong data. Jika 0, ambil semua.
+
     const projectsToShow = limit > 0 ? data.slice(0, limit) : data;
 
     projectsToShow.forEach((project) => {
@@ -258,44 +241,37 @@ function renderProjects(data) {
     });
   };
 
-  // EKSEKUSI
   if (homeContainer) {
-    // Di Home: Tampilkan cuma 3 project teratas
+
     mountToContainer(homeContainer, 3);
   }
 
   if (allContainer) {
-    // Di Halaman All: Tampilkan SEMUA project (limit 0)
+
     mountToContainer(allContainer, 0);
   }
 }
 
-// ================================
-// INIT (Pastikan renderProfile dll tetap ada)
-// ================================
 document.addEventListener("DOMContentLoaded", () => {
   // Cek agar tidak error jika elemen tidak ada di halaman AllProject.html
   if(document.getElementById("hero-headline")) renderProfile(DATA.profile);
   if(document.getElementById("education-list")) renderTimeline(DATA.timeline);
   if(document.getElementById("skills-grid")) renderSkills(DATA.skills);
   
-  // Render Project selalu dipanggil karena logikanya sudah aman di dalam fungsi
+
   renderProjects(DATA.projects);
 });
 
-// ================================
-// CURSOR FIREWORK EFFECT
-// ================================
+
 document.addEventListener('click', (e) => {
   createFirework(e.clientX, e.clientY);
 });
 
 function createFirework(x, y) {
-  const count = 10; // Jumlah percikan (garis)
+  const count = 10;
   const container = document.createElement('div');
   container.classList.add('cursor-firework');
   
-  // Posisi wadah ledakan tepat di ujung mouse
   container.style.left = x + 'px';
   container.style.top = y + 'px';
   
@@ -305,27 +281,23 @@ function createFirework(x, y) {
     const line = document.createElement('div');
     line.classList.add('firework-line');
     
-    // Hitung rotasi agar menyebar melingkar (360 derajat / jumlah garis)
     const angle = (360 / count) * i;
     
-    // Set rotasi awal
     line.style.transform = `rotate(${angle}deg) translateY(0)`;
     
     container.appendChild(line);
 
-    // Animasi menggunakan Web Animations API (Native JS)
-    // Garis bergerak menjauh (translateY minus) dan menghilang (opacity 0)
     line.animate([
       { transform: `rotate(${angle}deg) translateY(0) scale(1)`, opacity: 1 },
       { transform: `rotate(${angle}deg) translateY(-25px) scale(0.5)`, opacity: 0 }
     ], {
-      duration: 500, // Durasi animasi 0.5 detik
+      duration: 500,
       easing: 'ease-out',
       fill: 'forwards'
     });
   }
 
-  // Hapus elemen dari HTML setelah animasi selesai agar tidak memberatkan browser
+
   setTimeout(() => {
     container.remove();
   }, 500);
