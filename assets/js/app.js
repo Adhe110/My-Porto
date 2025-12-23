@@ -51,33 +51,27 @@ const DATA = {
     { name: "MySQL", icon: "assets/img/skills/mysql.png" }
   ],
 
-  projects: [
+projects: [
     {
-      title: "Hostify Property",
-      headline: "Property Marketplace",
-      description:
-        "Platform jual beli properti dengan fitur real-time chat dan peta interaktif. Membantu user menemukan hunian impian.",
-      image_url: "assets/img/Projects/Hostify.png",
-      tags: "HTML, Laravel",
-      repo_link: "https://github.com/dhea"
+      title: "IOT",
+      headline: "(Personal Projects)",
+      description: "Prototipe proyek IoT yang menghubungkan ESP32 dengan aplikasi Android untuk mengontrol lampu secara jarak jauh melalui Firebase Realtime Database secara real-time.",
+      image_url: "assets/img/Projects/IoT.jpg", 
+      repo_link: "https://github.com/Adhe110/IoT_Switch.git"
     },
     {
-      title: "Bansos System",
-      headline: "SPK Bansos Web",
-      description:
-        "Sistem pendukung keputusan penerima bantuan sosial menggunakan metode SAW dan TOPSIS.",
-      image_url: "assets/img/projects/bansos.png",
-      tags: "PHP, MySQL, SPK",
-      repo_link: "https://github.com/dhea"
+      title: "KOSTIFY",
+      headline: "(Final Project – Mobile Programming)",
+      description: "Aplikasi mobile yang dibangun dengan Android Studio untuk menampilkan daftar kost, menggunakan Firebase Realtime Database dan Firebase Storage untuk mengelola data dan gambar kost secara efisien.",
+      image_url: "assets/img/Projects/Hostify.jpg",
+      repo_link: "https://github.com/Adhe110/Aplikasi_Mobile_Hostify.git"
     },
     {
-      title: "ST-DBSCAN",
-      headline: "Transjakarta Analysis",
-      description:
-        "Implementasi algoritma ST-DBSCAN untuk menganalisis pola perjalanan penumpang Transjakarta.",
-      image_url: "assets/img/projects/stdbscan.png",
-      tags: "Python, Flask",
-      repo_link: "https://github.com/dhea"
+      title: "C-Book",
+      headline: "(Final Project – Web Programming)",
+      description: "Toko buku online yang dikembangkan menggunakan framework Laravel, dengan fitur-fitur seperti daftar buku, manajemen kategori, keranjang belanja, dan panel admin.",
+      image_url: "assets/img/Projects/C-Book.png", 
+      repo_link: "https://github.com/Adhe110/C-Book.git"
     }
   ]
 };
@@ -288,3 +282,51 @@ document.addEventListener("DOMContentLoaded", () => {
   // Render Project selalu dipanggil karena logikanya sudah aman di dalam fungsi
   renderProjects(DATA.projects);
 });
+
+// ================================
+// CURSOR FIREWORK EFFECT
+// ================================
+document.addEventListener('click', (e) => {
+  createFirework(e.clientX, e.clientY);
+});
+
+function createFirework(x, y) {
+  const count = 10; // Jumlah percikan (garis)
+  const container = document.createElement('div');
+  container.classList.add('cursor-firework');
+  
+  // Posisi wadah ledakan tepat di ujung mouse
+  container.style.left = x + 'px';
+  container.style.top = y + 'px';
+  
+  document.body.appendChild(container);
+
+  for (let i = 0; i < count; i++) {
+    const line = document.createElement('div');
+    line.classList.add('firework-line');
+    
+    // Hitung rotasi agar menyebar melingkar (360 derajat / jumlah garis)
+    const angle = (360 / count) * i;
+    
+    // Set rotasi awal
+    line.style.transform = `rotate(${angle}deg) translateY(0)`;
+    
+    container.appendChild(line);
+
+    // Animasi menggunakan Web Animations API (Native JS)
+    // Garis bergerak menjauh (translateY minus) dan menghilang (opacity 0)
+    line.animate([
+      { transform: `rotate(${angle}deg) translateY(0) scale(1)`, opacity: 1 },
+      { transform: `rotate(${angle}deg) translateY(-25px) scale(0.5)`, opacity: 0 }
+    ], {
+      duration: 500, // Durasi animasi 0.5 detik
+      easing: 'ease-out',
+      fill: 'forwards'
+    });
+  }
+
+  // Hapus elemen dari HTML setelah animasi selesai agar tidak memberatkan browser
+  setTimeout(() => {
+    container.remove();
+  }, 500);
+}

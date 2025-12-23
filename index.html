@@ -9,13 +9,35 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body { font-family: 'Fredoka'; }
     .text-brand { color: #FFA500; }
     .bg-brand { background-color: #FFA500; }
     .hover-bg-brand:hover { background-color: #e69500; }
     .border-brand { border-color: #FFA500; }
+
+    /* ... style lama kamu ... */
+
+  /* STYLE UNTUK EFEK KURSOR */
+  .cursor-firework {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Agar klik tembus ke belakang */
+    z-index: 9999;
+  }
+
+  .firework-line {
+    position: absolute;
+    width: 4px;   /* Lebar garis/titik */
+    height: 12px; /* Panjang garis */
+    background: #FFA500; /* Warna Brand (Orange) */
+    border-radius: 4px;
+    opacity: 0;
+    transform-origin: center bottom; /* Supaya menyebar dari tengah */
+  }
   </style>
 </head>
 
