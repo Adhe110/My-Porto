@@ -5,7 +5,7 @@ const DATA = {
     description:
       "Hello! I’m passionate about IoT and programming. Here you’ll find my projects, ideas, and the journey of combining hardware and software into working innovations.",
     image: "assets/img/Profile/My.jpg",
-    resume: "#"
+    resume: "https://drive.google.com/file/d/1L6bK2X_V3wUKWTH2qZr2UZfe_o_UURpa/view?usp=drive_link"
   },
 
   timeline: [

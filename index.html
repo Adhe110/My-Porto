@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dheee Portofolio</title>
 
+  <link rel="icon" type="image/jpeg" href="assets/img/Profile/favicon.ico">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -54,11 +56,23 @@
         <a href="#experiences" class="hover:text-black transition">Experiences</a>
         <a href="#skills" class="hover:text-black transition">Skills</a>
         <a href="#projects" class="hover:text-black transition">Projects</a>
+        <a href="#contact" class="hover:text-black transition">Contact</a>
       </div>
 
-      <button class="md:hidden text-gray-600">
+      <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
         <i class="fas fa-bars text-xl"></i>
       </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-full shadow-lg">
+      <div class="flex flex-col px-6 py-4 space-y-4">
+        <a href="#home" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Home</a>
+        <a href="#experiences" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Experiences</a>
+        <a href="#skills" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Skills</a>
+        <a href="#projects" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Projects</a>
+        <a href="#contact" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -140,7 +154,7 @@
   <footer id="contact" class="bg-white border-t border-gray-100 py-12">
     <div class="container mx-auto px-6 text-center space-y-6">
       <div class="flex justify-center space-x-8">
-        <a href="#" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/adhe.png/?igsh=MWxqcGt5cWpwdGk3Yg%3D%3D#s" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/in/syahrur-adhe-pratama-putra-926983384/" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/Adhe110" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-github"></i></a>
       </div>
