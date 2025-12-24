@@ -99,24 +99,24 @@ function renderTimeline(data) {
     const itemHTML = `
     <div class="bg-white p-6 md:p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-400 transition-all duration-300">
       
-      <div class="flex items-center justify-between gap-4"> 
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"> 
         
-        <div class="flex items-center gap-4 flex-1 min-w-0">
+        <div class="flex items-center gap-4 flex-1 min-w-0 w-full sm:w-auto">
           <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-50 rounded-lg p-2">
             <img src="${item.logo}" alt="${item.organization}" class="max-w-full max-h-full object-contain">
           </div>
 
           <div class="flex-1 min-w-0"> 
-            <h4 class="font-bold text-gray-900 text-xs sm:text-sm md:text-base whitespace-nowrap">
+            <h4 class="font-bold text-gray-900 text-xs sm:text-sm md:text-base">
               ${item.organization}
             </h4>
-            <p class="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap mt-0.5">
+            <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">
               ${item.role}
             </p>
           </div>
         </div>
 
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 self-start sm:self-auto ml-16 sm:ml-0">
           <span class="inline-block bg-white text-gray-500 text-[10px] sm:text-xs font-medium px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
             ${item.date}
           </span>
@@ -260,6 +260,23 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   renderProjects(DATA.projects);
+
+  // Mobile Menu Logic
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
 });
 
 
