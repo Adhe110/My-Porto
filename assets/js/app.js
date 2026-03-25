@@ -25,6 +25,13 @@ const DATA = {
     },
     {
       category: "Experience",
+      organization: "CV Pallaka Techno",
+      role: "Intern",
+      date: "Dec 2025 - Feb 2026",
+      logo: "assets/img/Education&Experience/Cv_Pallaka_Techno.png"
+    },
+    {
+      category: "Experience",
       organization: "GDoC Universitas Negeri Makassar",
       role: "Research And Development",
       date: "Oct 2023 - Present",
