@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dheee Portofolio</title>
+  
+  <title>Dhea | Web Developer & IoT Enthusiast Portfolio</title>
+  <meta name="title" content="Dhea | Web Developer & IoT Enthusiast Portfolio" />
+  <meta name="description" content="Portofolio resmi Dhea. Menampilkan pengalaman, keahlian, dan berbagai proyek di bidang Web Development, Internet of Things (IoT), dan Artificial Intelligence." />
+  <meta name="keywords" content="Dhea, Portofolio, Web Developer, IoT, Artificial Intelligence, Programmer Makassar, Pembuatan Website" />
+  <meta name="author" content="Dhea" />
+
+  <link rel="canonical" href="https://www.dheee.my.id/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.dheee.my.id/" />
+  <meta property="og:title" content="Dhea | Web Developer & IoT Enthusiast Portfolio" />
+  <meta property="og:description" content="Lihat pengalaman dan berbagai proyek pengembangan web serta IoT yang telah saya kerjakan." />
+  <meta property="og:image" content="https://www.dheee.my.id/assets/img/profile.jpg" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.dheee.my.id/" />
+  <meta property="twitter:title" content="Dhea | Web Developer & IoT Enthusiast Portfolio" />
+  <meta property="twitter:description" content="Lihat pengalaman dan berbagai proyek pengembangan web serta IoT yang telah saya kerjakan." />
+  <meta property="twitter:image" content="https://www.dheee.my.id/assets/img/profile.jpg" />
 
   <link rel="icon" type="image/jpeg" href="assets/img/Profile/favicon.ico">
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,26 +38,24 @@
     .hover-bg-brand:hover { background-color: #e69500; }
     .border-brand { border-color: #FFA500; }
 
-    /* ... style lama kamu ... */
+    /* STYLE UNTUK EFEK KURSOR */
+    .cursor-firework {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-  /* STYLE UNTUK EFEK KURSOR */
-  .cursor-firework {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Agar klik tembus ke belakang */
-    z-index: 9999;
-  }
-
-  .firework-line {
-    position: absolute;
-    width: 4px;   /* Lebar garis/titik */
-    height: 12px; /* Panjang garis */
-    background: #FFA500; /* Warna Brand (Orange) */
-    border-radius: 4px;
-    opacity: 0;
-    transform-origin: center bottom; /* Supaya menyebar dari tengah */
-  }
+    .firework-line {
+      position: absolute;
+      width: 4px;
+      height: 12px;
+      background: #FFA500;
+      border-radius: 4px;
+      opacity: 0;
+      transform-origin: center bottom;
+    }
   </style>
 </head>
 
@@ -63,7 +79,6 @@
       </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-full shadow-lg">
       <div class="flex flex-col px-6 py-4 space-y-4">
         <a href="#home" class="mobile-link text-gray-600 hover:text-[#FFA500] font-medium transition">Home</a>
@@ -75,80 +90,74 @@
     </div>
   </nav>
 
-  <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32">
-    <div class="container mx-auto px-6 md:px-12">
-      <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
+  <main>
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32">
+      <div class="container mx-auto px-6 md:px-12">
+        <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
 
-        <div class="w-full md:w-1/2 space-y-6">
-          <h1 id="hero-headline" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-            Loading...
-          </h1>
+          <div class="w-full md:w-1/2 space-y-6">
+            <h1 id="hero-headline" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+              Halo, Saya Dhea
+            </h1>
 
-          <p id="hero-subheadline" class="text-lg font-semibold text-gray-500">
-            Loading...
-          </p>
+            <p id="hero-subheadline" class="text-lg font-semibold text-gray-500">
+              Web Developer & AI Enthusiast
+            </p>
 
-          <p id="hero-description" class="text-gray-600 leading-relaxed max-w-lg">
-            Loading...
-          </p>
+            <p id="hero-description" class="text-gray-600 leading-relaxed max-w-lg">
+              Saya memiliki minat besar dalam membangun sistem cerdas, aplikasi web, dan integrasi IoT.
+            </p>
 
-          <div class="pt-4">
-            <a id="hero-btn" href="#" class="bg-brand hover-bg-brand text-white font-bold py-3 px-10 rounded-lg shadow-lg shadow-orange-200 hover:shadow-orange-300 transition transform hover:-translate-y-1 inline-block">
-              Resume
-            </a>
+            <div class="pt-4">
+              <a id="hero-btn" href="#" class="bg-brand hover-bg-brand text-white font-bold py-3 px-10 rounded-lg shadow-lg shadow-orange-200 hover:shadow-orange-300 transition transform hover:-translate-y-1 inline-block">
+                Resume
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="w-full md:w-1/2 flex justify-center md:justify-end">
-          <div class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border-4 border-white ring-1 ring-gray-100">
-            <img id="hero-image" src="assets/img/profile.jpg" alt="Profile" class="w-full h-full object-cover">
+          <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div class="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border-4 border-white ring-1 ring-gray-100">
+              <img id="hero-image" src="assets/img/profile.jpg" alt="Foto Profil Dhea - Web Developer" class="w-full h-full object-cover">
+            </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-<section id="experiences" class="py-20 bg-gray-50/50">
-  <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-    
-    <h2 class="text-3xl font-bold mb-12 text-black text-center">Education & Experience</h2>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-10">
-      <div id="education-list" class="space-y-6"></div>
-      <div id="experience-list" class="space-y-6"></div>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="py-20 bg-white">
-  <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-    
-    <h2 class="text-3xl font-bold mb-10 text-black text-center">Skills</h2>
-
-    <div id="skills-grid" class="flex flex-wrap justify-center gap-6 md:gap-8">
-      <div class="w-24 h-24 bg-gray-100 rounded-xl animate-pulse"></div>
-    </div>
-    
-  </div>
-</section>
-
-<section id="projects" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-      
-      <h2 class="text-3xl font-bold mb-10 text-black text-center">Projects</h2>
-
-      <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="h-64 bg-gray-200 rounded-2xl animate-pulse col-span-full text-center py-20 text-gray-400">Loading Projects...</div>
+    <section id="experiences" class="py-20 bg-gray-50/50">
+      <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+        <h2 class="text-3xl font-bold mb-12 text-black text-center">Education & Experience</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-10">
+          <div id="education-list" class="space-y-6"></div>
+          <div id="experience-list" class="space-y-6"></div>
+        </div>
       </div>
+    </section>
 
-      <div class="mt-16 text-center">
-        <a href="AllProject.html" class="inline-block bg-brand hover-bg-brand text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300">
-          All Projects
-        </a>
+    <section id="skills" class="py-20 bg-white">
+      <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+        <h2 class="text-3xl font-bold mb-10 text-black text-center">Skills</h2>
+        <div id="skills-grid" class="flex flex-wrap justify-center gap-6 md:gap-8">
+          <div class="w-24 h-24 bg-gray-100 rounded-xl animate-pulse"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+        <h2 class="text-3xl font-bold mb-10 text-black text-center">Projects</h2>
+        <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="h-64 bg-gray-200 rounded-2xl animate-pulse col-span-full text-center py-20 text-gray-400">Loading Projects...</div>
+        </div>
+        <div class="mt-16 text-center">
+          <a href="AllProject.html" class="inline-block bg-brand hover-bg-brand text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300">
+            All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer id="contact" class="bg-white border-t border-gray-100 py-12">
     <div class="container mx-auto px-6 text-center space-y-6">
@@ -163,7 +172,6 @@
     </div>
   </footer>
 
-  <!-- JS dipisah -->
   <script src="assets/js/app.js"></script>
 </body>
 </html>
