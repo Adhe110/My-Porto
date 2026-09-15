@@ -4,7 +4,7 @@ const DATA = {
     subheadline: " IoT & Programming Enthusiast",
     description:
       "Hello! I’m passionate about IoT and programming. Here you’ll find my projects, ideas, and the journey of combining hardware and software into working innovations.",
-    image: "assets/img/Profile/My.jpg",
+    image: "assets/img/Profile/my1.jpg",
     resume: "https://drive.google.com/file/d/1WxAqan7cDX_59ASB6FekIlmT3xGszrLu/view?usp=sharing"
   },
 
@@ -71,6 +71,14 @@ const DATA = {
       image_url: "assets/img/Projects/Bot.png",
       repo_link: "#",
       tags: "n8n, Telegram, Gemini API, OCR"
+    },
+    {
+    title: "SOCIAL MEDIA CONTENT",
+    headline: "(Internship Project)",
+    description: "Membuat dan mengembangkan konten media sosial Indibiz KTI, mulai dari konten trivia, hard-selling, hingga materi promosi untuk meningkatkan engagement dan brand awareness.",
+    image_url: "assets/img/Projects/Sosmed.png",
+    repo_link: "#",
+    tags: "Copywriting, Social Media, Content Creation"
     },
     {
       title: "IOT",
