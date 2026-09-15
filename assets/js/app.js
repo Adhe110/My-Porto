@@ -65,6 +65,14 @@ const DATA = {
 
   projects: [
     {
+      title: "BOT AUTOMATION",
+      headline: "(Internship Project)",
+      description: "Tiga bot Telegram berbasis n8n untuk mengotomatisasi pengingat langganan, pemesanan makan siang, dan pencatatan keuangan dengan bantuan Gemini API dan OCR.",
+      image_url: "assets/img/Projects/Bot.png",
+      repo_link: "#",
+      tags: "n8n, Telegram, Gemini API, OCR"
+    },
+    {
       title: "IOT",
       headline: "(Personal Projects)",
       description: "Prototipe proyek IoT yang menghubungkan ESP32 dengan aplikasi Android untuk mengontrol lampu secara jarak jauh melalui Firebase Realtime Database secara real-time.",
