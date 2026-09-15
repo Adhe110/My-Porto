@@ -5,7 +5,7 @@ const DATA = {
     description:
       "Hello! I’m passionate about IoT and programming. Here you’ll find my projects, ideas, and the journey of combining hardware and software into working innovations.",
     image: "assets/img/Profile/My.jpg",
-    resume: "https://drive.google.com/file/d/1L6bK2X_V3wUKWTH2qZr2UZfe_o_UURpa/view?usp=drive_link"
+    resume: "https://drive.google.com/file/d/1WxAqan7cDX_59ASB6FekIlmT3xGszrLu/view?usp=sharing"
   },
 
   timeline: [
@@ -22,6 +22,13 @@ const DATA = {
       role: "Audio Video",
       date: "July 2020 - May 2023",
       logo: "assets/img/Education&Experience/smk2.png"
+    },
+    {
+      category: "Experience",
+      organization: "Telkom Regional 5 KTI",
+      role: "Intern",
+      date: "Juli 2026 - September 2026",
+      logo: "assets/img/Education&Experience/telkom.png"
     },
     {
       category: "Experience",
@@ -52,30 +59,34 @@ const DATA = {
     { name: "CSS3", icon: "assets/img/Skills/css.png" },
     { name: "PHP", icon: "assets/img/Skills/php.png" },
     { name: "Laravel", icon: "assets/img/Skills/laravel.png" },
-    { name: "MySQL", icon: "assets/img/Skills/mysql.png" }
+    { name: "MySQL", icon: "assets/img/Skills/mysql.png" },
+    { name: "N8N", icon: "assets/img/Skills/n8n.png" }
   ],
 
-projects: [
+  projects: [
     {
       title: "IOT",
       headline: "(Personal Projects)",
       description: "Prototipe proyek IoT yang menghubungkan ESP32 dengan aplikasi Android untuk mengontrol lampu secara jarak jauh melalui Firebase Realtime Database secara real-time.",
       image_url: "assets/img/Projects/IoT.jpg", 
-      repo_link: "https://github.com/Adhe110/IoT_Switch.git"
+      repo_link: "https://github.com/Adhe110/IoT_Switch.git",
+      tags: "ESP32, Android, Firebase"
     },
     {
       title: "KOSTIFY",
       headline: "(Final Project – Mobile Programming)",
       description: "Aplikasi mobile yang dibangun dengan Android Studio untuk menampilkan daftar kost, menggunakan Firebase Realtime Database dan Firebase Storage untuk mengelola data dan gambar kost secara efisien.",
       image_url: "assets/img/Projects/Hostify.jpg",
-      repo_link: "https://github.com/Adhe110/Aplikasi_Mobile_Hostify.git"
+      repo_link: "https://github.com/Adhe110/Aplikasi_Mobile_Hostify.git",
+      tags: "Android Studio, Firebase"
     },
     {
       title: "C-Book",
       headline: "(Final Project – Web Programming)",
       description: "Toko buku online yang dikembangkan menggunakan framework Laravel, dengan fitur-fitur seperti daftar buku, manajemen kategori, keranjang belanja, dan panel admin.",
       image_url: "assets/img/Projects/C-Book.png", 
-      repo_link: "https://github.com/Adhe110/C-Book.git"
+      repo_link: "https://github.com/Adhe110/C-Book.git",
+      tags: "Laravel, PHP, MySQL"
     }
   ]
 };
@@ -159,104 +170,79 @@ function renderSkills(data) {
 }
 
 function renderProjects(data) {
-  const container = document.getElementById("project-grid");
-  container.innerHTML = "";
-
-  data.forEach((project) => {
+  const renderCard = (project, index) => {
     const tags = (project.tags || "")
       .split(",")
       .filter(Boolean)
-      .map(
-        (t) =>
-          `<span class="border border-gray-300 rounded-full px-3 py-1 text-[10px] font-bold text-gray-500 uppercase tracking-wide">${t.trim()}</span>`
-      )
+      .map((tag) => `<span class="tech-badge">${tag.trim()}</span>`)
       .join("");
+    const demo = project.demo_link
+      ? `<a href="${project.demo_link}" target="_blank" rel="noopener noreferrer" class="project-link">Live demo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`
+      : "";
 
-    container.innerHTML += `
-      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col h-full group">
-        <div class="h-48 p-8 flex items-center justify-center bg-white border-b border-gray-50 relative overflow-hidden">
-          <img src="${project.image_url}" alt="${project.title}" class="max-h-full max-w-full object-contain z-10 relative">
-          <div class="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-10 transition"></div>
+    return `
+      <article class="project-card" style="--card-index: ${index}">
+        <div class="project-media"><img src="${project.image_url}" alt="Screenshot proyek ${project.title}" loading="lazy"></div>
+        <div class="project-body">
+          <p class="eyebrow">${project.headline}</p>
+          <h3>${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          <div class="tech-list">${tags}</div>
+          <div class="project-actions">${demo}<a href="${project.repo_link}" target="_blank" rel="noopener noreferrer" class="project-link project-link-dark"><i class="fab fa-github" aria-hidden="true"></i> Source code</a></div>
         </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-gray-900">${project.title}</h3>
-          <p class="text-xs font-bold text-brand mb-3 uppercase tracking-wider">${project.headline}</p>
-          <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
-            ${project.description}
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">${tags}</div>
-          <div class="mt-auto border-t border-gray-100 pt-4">
-            <a href="${project.repo_link}" target="_blank" class="inline-flex items-center text-gray-800 hover:text-brand font-medium text-sm transition">
-              <i class="fab fa-github text-lg mr-2"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderProfile(DATA.profile);
-  renderTimeline(DATA.timeline);
-  renderSkills(DATA.skills);
-  renderProjects(DATA.projects);
-});
-
-function renderProjects(data) {
-
-  const homeContainer = document.getElementById("project-grid");
-  
-
-  const allContainer = document.getElementById("all-project-grid");
-
-
-  const mountToContainer = (container, limit = 0) => {
-    container.innerHTML = "";
-    
-
-    const projectsToShow = limit > 0 ? data.slice(0, limit) : data;
-
-    projectsToShow.forEach((project) => {
-      const tags = (project.tags || "")
-        .split(",")
-        .filter(Boolean)
-        .map(t => `<span class="border border-gray-300 rounded-full px-3 py-1 text-[10px] font-bold text-gray-500 uppercase tracking-wide">${t.trim()}</span>`)
-        .join("");
-
-      container.innerHTML += `
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col h-full group">
-          <div class="h-48 p-8 flex items-center justify-center bg-white border-b border-gray-50 relative overflow-hidden">
-            <img src="${project.image_url}" alt="${project.title}" class="max-h-full max-w-full object-contain z-10 relative">
-            <div class="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-10 transition"></div>
-          </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-900">${project.title}</h3>
-            <p class="text-xs font-bold text-brand mb-3 uppercase tracking-wider">${project.headline}</p>
-            <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
-              ${project.description}
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">${tags}</div>
-            <div class="mt-auto border-t border-gray-100 pt-4">
-              <a href="${project.repo_link}" target="_blank" class="inline-flex items-center text-gray-800 hover:text-brand font-medium text-sm transition">
-                <i class="fab fa-github text-lg mr-2"></i> View Code
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-    });
+      </article>`;
   };
 
-  if (homeContainer) {
+  const homeContainer = document.getElementById("project-grid");
+  const allContainer = document.getElementById("all-project-grid");
+  if (homeContainer) homeContainer.innerHTML = data.slice(0, 3).map(renderCard).join("");
+  if (allContainer) allContainer.innerHTML = data.map(renderCard).join("");
+}
 
-    mountToContainer(homeContainer, 3);
+function setupScrollAnimations() {
+  const revealItems = document.querySelectorAll("main section:not(#home), .project-card, #education-list > div, #experience-list > div, #skills-grid > div");
+  revealItems.forEach((item, index) => {
+    item.classList.add("reveal");
+    item.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+  });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
   }
 
-  if (allContainer) {
+  const observer = new IntersectionObserver((entries, animationObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      animationObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
 
-    mountToContainer(allContainer, 0);
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function createFirework(x, y) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const container = document.createElement("div");
+  container.className = "cursor-firework";
+  container.setAttribute("aria-hidden", "true");
+  document.body.appendChild(container);
+
+  const particleCount = 12;
+  for (let index = 0; index < particleCount; index += 1) {
+    const particle = document.createElement("span");
+    particle.className = "firework-line";
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.setProperty("--spark-angle", `${(360 / particleCount) * index}deg`);
+    particle.style.setProperty("--spark-distance", `${22 + Math.random() * 18}px`);
+    particle.style.setProperty("--spark-delay", `${Math.random() * 50}ms`);
+    container.appendChild(particle);
   }
+
+  window.setTimeout(() => container.remove(), 800);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -267,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   renderProjects(DATA.projects);
+  setupScrollAnimations();
 
   // Mobile Menu Logic
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -276,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
     });
 
     mobileLinks.forEach(link => {
@@ -284,45 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  document.addEventListener("pointerdown", (event) => {
+    createFirework(event.clientX, event.clientY);
+  }, { passive: true });
 });
-
-
-document.addEventListener('click', (e) => {
-  createFirework(e.clientX, e.clientY);
-});
-
-function createFirework(x, y) {
-  const count = 10;
-  const container = document.createElement('div');
-  container.classList.add('cursor-firework');
-  
-  container.style.left = x + 'px';
-  container.style.top = y + 'px';
-  
-  document.body.appendChild(container);
-
-  for (let i = 0; i < count; i++) {
-    const line = document.createElement('div');
-    line.classList.add('firework-line');
-    
-    const angle = (360 / count) * i;
-    
-    line.style.transform = `rotate(${angle}deg) translateY(0)`;
-    
-    container.appendChild(line);
-
-    line.animate([
-      { transform: `rotate(${angle}deg) translateY(0) scale(1)`, opacity: 1 },
-      { transform: `rotate(${angle}deg) translateY(-25px) scale(0.5)`, opacity: 0 }
-    ], {
-      duration: 500,
-      easing: 'ease-out',
-      fill: 'forwards'
-    });
-  }
-
-
-  setTimeout(() => {
-    container.remove();
-  }, 500);
-}

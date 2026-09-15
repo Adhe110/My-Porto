@@ -26,7 +26,7 @@
   <meta property="twitter:description" content="Lihat pengalaman dan berbagai proyek pengembangan web serta IoT yang telah saya kerjakan." />
   <meta property="twitter:image" content="https://www.dheee.my.id/assets/img/Profile/My.jpg" />
 
-  <link rel="icon" type="image/jpeg" href="assets/img/Profile/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/img/Profile/favicon.ico">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,30 +34,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Fredoka'; }
-    .text-brand { color: #FFA500; }
-    .bg-brand { background-color: #FFA500; }
-    .hover-bg-brand:hover { background-color: #e69500; }
-    .border-brand { border-color: #FFA500; }
-
-    /* STYLE UNTUK EFEK KURSOR */
-    .cursor-firework {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    .firework-line {
-      position: absolute;
-      width: 4px;
-      height: 12px;
-      background: #FFA500;
-      border-radius: 4px;
-      opacity: 0;
-      transform-origin: center bottom;
-    }
+    :root { --ink: #17202a; --muted: #66717d; --orange: #f28b30; --cream: #f7f5f0; --line: #e5e2db; }
+    html { scroll-padding-top: 5.5rem; }
+    body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--ink); }
+    .text-brand { color: var(--orange); }
+    .bg-brand { background: var(--orange); }
+    .hover-bg-brand:hover { background: #d8751d; }
+    .border-brand { border-color: var(--orange); }
+    nav { background: rgba(247,245,240,.88) !important; border-color: var(--line) !important; }
+    nav > div:first-child { max-width: 76rem; }
+    nav a { transition: color .2s ease; }
+    nav a:hover { color: var(--orange) !important; }
+    .container { max-width: 76rem; }
+    main section { position: relative; }
+    #home { min-height: 42rem; display: flex; align-items: center; background: radial-gradient(circle at 88% 25%, rgba(242,139,48,.15), transparent 24rem), var(--cream); }
+    #home h1 { max-width: 45rem; font-family: 'Poppins', sans-serif; font-size: clamp(2.5rem, 6vw, 5.5rem); letter-spacing: -.07em; line-height: 1.02; }
+    #hero-subheadline { color: var(--orange); letter-spacing: .08em; text-transform: uppercase; font-size: .78rem; }
+    #hero-description { color: var(--muted); max-width: 34rem; font-size: 1.05rem; }
+    #hero-btn { border-radius: 999px; box-shadow: 0 12px 24px rgba(242,139,48,.2); }
+    #hero-btn::after { content: '  ↗'; }
+    #hero-image { filter: saturate(.9); }
+    #home .rounded-\[3rem\] { border-radius: 1.25rem; transform: rotate(2deg); box-shadow: 1.2rem 1.2rem 0 rgba(242,139,48,.16); }
+    #experiences, #projects { background: var(--cream); }
+    #skills { background: #fff; }
+    section h2 { font-size: clamp(1.8rem, 3vw, 2.75rem); letter-spacing: -.05em; }
+    section h2::before { content: '/ '; color: var(--orange); }
+    #education-list > div, #experience-list > div { border-radius: 1rem; border-color: var(--line); box-shadow: none; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    #education-list > div:hover, #experience-list > div:hover { transform: translateY(-3px); border-color: var(--orange); box-shadow: 0 1rem 2rem rgba(23,32,42,.07); }
+    #skills-grid { gap: .75rem; }
+    #skills-grid > div { width: auto; height: auto; min-width: 8rem; padding: 1rem 1.2rem; flex-direction: row; border-radius: 999px; border-color: var(--line); box-shadow: none; }
+    #skills-grid > div img { width: 1.8rem; height: 1.8rem; }
+    #skills-grid > div span { font-size: .78rem; color: var(--ink); }
+    #project-grid, #all-project-grid { align-items: stretch; }
+    .project-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: #fff; animation: rise .55s both; animation-delay: calc(var(--card-index) * 90ms); transition: transform .3s ease, box-shadow .3s ease; }
+    .project-card:hover { transform: translateY(-7px); box-shadow: 0 1.5rem 3rem rgba(23,32,42,.1); }
+    .project-media { height: 14rem; display: grid; place-items: center; padding: 1.5rem; background: #f0eee8; overflow: hidden; }
+    .project-media img { width: 100%; height: 100%; object-fit: contain; transition: transform .4s ease; }
+    .project-card:hover .project-media img { transform: scale(1.04); }
+    .project-body { display: flex; flex: 1; flex-direction: column; padding: 1.5rem; }
+    .eyebrow { margin: 0 0 .55rem; color: var(--orange); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .project-body h3 { margin: 0; font-size: 1.45rem; letter-spacing: -.04em; }
+    .project-description { flex: 1; margin: .8rem 0 1.2rem; color: var(--muted); font-size: .87rem; line-height: 1.75; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.3rem; }
+    .tech-badge { border: 1px solid #d9d5cc; border-radius: 999px; padding: .3rem .6rem; color: #59636c; font-size: .67rem; font-weight: 600; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; border-top: 1px solid #eeeae2; }
+    .project-link { color: var(--orange); font-size: .78rem; font-weight: 700; }
+    .project-link-dark { color: var(--ink); }
+    .project-link:hover { color: #c46615; }
+    #contact { background: var(--ink); border: 0; color: #fff; }
+    #contact p { color: #aeb7bd; }
+    #contact a { color: #c6cdd0; }
+    #contact a:hover { color: var(--orange); }
+    .cursor-firework { position: fixed; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden; }
+    .firework-line { position: absolute; left: 0; top: 0; width: 3px; height: 14px; border-radius: 999px; background: var(--spark-color, var(--orange)); transform-origin: 50% 100%; animation: firework-pop .65s cubic-bezier(.18,.75,.35,1) forwards; animation-delay: var(--spark-delay, 0ms); }
+    .reveal { opacity: 0; transform: translateY(1.5rem); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    #home .reveal { opacity: 1; transform: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes firework-pop { 0% { opacity: 0; transform: rotate(var(--spark-angle)) translateY(0) scaleY(.25); } 20% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--spark-angle)) translateY(calc(var(--spark-distance) * -1)) scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    @media (max-width: 767px) { #home { min-height: auto; } #home .rounded-\[3rem\] { transform: none; } #skills-grid > div { min-width: 7.2rem; } }
   </style>
 </head>
 
@@ -74,9 +110,10 @@
         <a href="#experiences" class="hover:text-black transition">Experiences</a>
         <a href="#skills" class="hover:text-black transition">Skills</a>
         <a href="#projects" class="hover:text-black transition">Projects</a>
+        <a href="#contact" class="hover:text-black transition">Contact</a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+      <button id="mobile-menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="md:hidden text-gray-600 focus:outline-none">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
@@ -98,6 +135,7 @@
         <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
 
           <div class="w-full md:w-1/2 space-y-6">
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest">Web developer & IoT enthusiast</p>
             <h1 id="hero-headline" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
               Halo, Saya Dhea
             </h1>
@@ -111,8 +149,8 @@
             </p>
 
             <div class="pt-4">
-              <a id="hero-btn" href="#" class="bg-brand hover-bg-brand text-white font-bold py-3 px-10 rounded-lg shadow-lg shadow-orange-200 hover:shadow-orange-300 transition transform hover:-translate-y-1 inline-block">
-                Resume
+              <a id="hero-btn" href="" class="bg-brand hover-bg-brand text-white font-bold py-3 px-10 rounded-lg shadow-lg shadow-orange-200 hover:shadow-orange-300 transition transform hover:-translate-y-1 inline-block">
+                View resume
               </a>
             </div>
           </div>
@@ -129,7 +167,7 @@
 
     <section id="experiences" class="py-20 bg-gray-50/50">
       <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-        <h2 class="text-3xl font-bold mb-12 text-black text-center">Education & Experience</h2>
+        <div class="mb-12 text-center"><p class="text-brand text-xs font-bold uppercase tracking-widest">The path so far</p><h2 class="text-3xl font-bold text-black">Education & Experience</h2></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-10">
           <div id="education-list" class="space-y-6"></div>
           <div id="experience-list" class="space-y-6"></div>
@@ -139,7 +177,7 @@
 
     <section id="skills" class="py-20 bg-white">
       <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-        <h2 class="text-3xl font-bold mb-10 text-black text-center">Skills</h2>
+        <div class="mb-10 text-center"><p class="text-brand text-xs font-bold uppercase tracking-widest">Tools I use</p><h2 class="text-3xl font-bold text-black">Skills</h2></div>
         <div id="skills-grid" class="flex flex-wrap justify-center gap-6 md:gap-8">
           <div class="w-24 h-24 bg-gray-100 rounded-xl animate-pulse"></div>
         </div>
@@ -148,13 +186,13 @@
 
     <section id="projects" class="py-20 bg-gray-50">
       <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-        <h2 class="text-3xl font-bold mb-10 text-black text-center">Projects</h2>
+        <div class="mb-10 text-center"><p class="text-brand text-xs font-bold uppercase tracking-widest">Selected work</p><h2 class="text-3xl font-bold text-black">Projects</h2></div>
         <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="h-64 bg-gray-200 rounded-2xl animate-pulse col-span-full text-center py-20 text-gray-400">Loading Projects...</div>
         </div>
         <div class="mt-16 text-center">
           <a href="AllProject.html" class="inline-block bg-brand hover-bg-brand text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300">
-            All Projects
+            Explore all projects <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -163,6 +201,7 @@
 
   <footer id="contact" class="bg-white border-t border-gray-100 py-12">
     <div class="container mx-auto px-6 text-center space-y-6">
+      <div><p class="text-brand text-xs font-bold uppercase tracking-widest mb-2">Have a project in mind?</p><h2 class="text-2xl md:text-3xl font-bold">Let&apos;s build something useful.</h2></div>
       <div class="flex justify-center space-x-8">
         <a href="https://www.instagram.com/adhe.e_/?igsh=MWxqcGt5cWpwdGk3Yg%3D%3D#s" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/in/syahrur-adhe-pratama-putra-926983384/" class="text-gray-400 hover:text-black text-2xl transition"><i class="fab fa-linkedin"></i></a>
